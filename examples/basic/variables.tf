@@ -8,6 +8,11 @@ variable "domain" {
   type        = string
 }
 
+variable "registry_server" {
+  type        = string
+  description = "Artifact registry server."
+}
+
 variable "registry_username" {
   type        = string
   description = "Artifact registry username."

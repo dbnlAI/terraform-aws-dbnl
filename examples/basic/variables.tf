@@ -11,6 +11,7 @@ variable "domain" {
 variable "registry_server" {
   type        = string
   description = "Artifact registry server."
+  default     = "us-docker.pkg.dev"
 }
 
 variable "registry_username" {

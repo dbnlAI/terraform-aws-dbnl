@@ -172,6 +172,7 @@ module "app" {
   redis_username = module.redis.username
   redis_password = module.redis.password
 
+  registry_server   = var.registry_server
   registry_username = var.registry_username
   registry_password = var.registry_password
 

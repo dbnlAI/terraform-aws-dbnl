@@ -166,6 +166,8 @@ module "app" {
 
   public_facing = var.public_facing
 
+  terms_of_service_disabled = var.terms_of_service_disabled
+
   redis_host     = module.redis.host
   redis_port     = module.redis.port
   redis_database = module.redis.database

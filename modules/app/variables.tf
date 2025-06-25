@@ -179,3 +179,9 @@ variable "s3_region" {
   type        = string
   description = "S3 region."
 }
+
+variable "terms_of_service_disabled" {
+  type        = bool
+  description = "Whether to disable the terms of service acceptance requirement."
+  default     = false
+}

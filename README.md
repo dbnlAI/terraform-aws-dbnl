@@ -68,6 +68,7 @@ Terraform module to deploy dbnl in AWS.
 | <a name="input_registry_password"></a> [registry\_password](#input\_registry\_password) | Artifact registry password. | `string` | n/a | yes |
 | <a name="input_registry_server"></a> [registry\_server](#input\_registry\_server) | Artifact registry server. | `string` | `"us-docker.pkg.dev"` | no |
 | <a name="input_registry_username"></a> [registry\_username](#input\_registry\_username) | Artifact registry username. | `string` | n/a | yes |
+| <a name="input_terms_of_service_disabled"></a> [terms\_of\_service\_disabled](#input\_terms\_of\_service\_disabled) | Whether to disable the terms of service acceptance requirement. | `bool` | `false` | no |
 | <a name="input_terraform_deletion_protection"></a> [terraform\_deletion\_protection](#input\_terraform\_deletion\_protection) | Whether or not terraform can delete resources such as database, blobstore (S3) data. | `bool` | `false` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID to use for the app. Required if `create_vpc` is false. | `string` | `null` | no |
 

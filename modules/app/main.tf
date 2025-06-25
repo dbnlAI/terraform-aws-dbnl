@@ -145,6 +145,9 @@ locals {
         region  = var.s3_region
       }
     }
+    tos = {
+      disabled = var.terms_of_service_disabled
+    }
   }
 }
 

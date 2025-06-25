@@ -57,6 +57,7 @@ No modules.
 | <a name="input_s3_bucket"></a> [s3\_bucket](#input\_s3\_bucket) | S3 bucket name. | `string` | n/a | yes |
 | <a name="input_s3_region"></a> [s3\_region](#input\_s3\_region) | S3 region. | `string` | n/a | yes |
 | <a name="input_service_account_roles_arns"></a> [service\_account\_roles\_arns](#input\_service\_account\_roles\_arns) | Service account roles ARNs. | `map(string)` | n/a | yes |
+| <a name="input_terms_of_service_disabled"></a> [terms\_of\_service\_disabled](#input\_terms\_of\_service\_disabled) | Whether to disable the terms of service acceptance requirement. | `bool` | `false` | no |
 
 ## Outputs
 

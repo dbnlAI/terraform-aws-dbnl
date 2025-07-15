@@ -41,11 +41,11 @@ resource "kubernetes_secret" "image_pull_secret" {
 
 locals {
   values = {
-    imagePullSecrets = [
+    imagePullSecrets = length(kubernetes_secret.image_pull_secret) > 0 ? [
       {
-        name = kubernetes_secret.image_pull_secret.metadata[0].name
+        name = kubernetes_secret.image_pull_secret[0].metadata[0].name
       }
-    ]
+    ] : []
     api = {
       serviceAccount = {
         annotations = {

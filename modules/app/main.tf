@@ -18,6 +18,8 @@ locals {
 
 # Create image pull secrets to pull containers from registry.
 resource "kubernetes_secret" "image_pull_secret" {
+  count = (var.registry_username != null && var.registry_password != null) ? 1 : 0
+
   metadata {
     name = "${var.prefix}-docker-cfg"
   }
@@ -154,7 +156,7 @@ locals {
 # Create Helm release.
 resource "helm_release" "dbnl" {
   name       = var.helm_release_name
-  repository = "oci://${var.registry_server}/dbnlai/charts"
+  repository = "oci://${var.registry_server}/charts"
   chart      = "dbnl"
   version    = var.helm_chart_version
   namespace  = var.helm_release_namespace

@@ -51,9 +51,9 @@ No modules.
 | <a name="input_redis_password"></a> [redis\_password](#input\_redis\_password) | Redis password. | `string` | n/a | yes |
 | <a name="input_redis_port"></a> [redis\_port](#input\_redis\_port) | Redis port. | `number` | n/a | yes |
 | <a name="input_redis_username"></a> [redis\_username](#input\_redis\_username) | Redis username. | `string` | n/a | yes |
-| <a name="input_registry_password"></a> [registry\_password](#input\_registry\_password) | Artifact registry password. | `string` | n/a | yes |
-| <a name="input_registry_server"></a> [registry\_server](#input\_registry\_server) | Artifact registry server. | `string` | `"us-docker.pkg.dev"` | no |
-| <a name="input_registry_username"></a> [registry\_username](#input\_registry\_username) | Artifact registry username. | `string` | n/a | yes |
+| <a name="input_registry_password"></a> [registry\_password](#input\_registry\_password) | Artifact registry password. | `string` | `null` | no |
+| <a name="input_registry_server"></a> [registry\_server](#input\_registry\_server) | Artifact registry server. | `string` | `"ghcr.io/dbnlai"` | no |
+| <a name="input_registry_username"></a> [registry\_username](#input\_registry\_username) | Artifact registry username. | `string` | `null` | no |
 | <a name="input_s3_bucket"></a> [s3\_bucket](#input\_s3\_bucket) | S3 bucket name. | `string` | n/a | yes |
 | <a name="input_s3_region"></a> [s3\_region](#input\_s3\_region) | S3 region. | `string` | n/a | yes |
 | <a name="input_service_account_roles_arns"></a> [service\_account\_roles\_arns](#input\_service\_account\_roles\_arns) | Service account roles ARNs. | `map(string)` | n/a | yes |

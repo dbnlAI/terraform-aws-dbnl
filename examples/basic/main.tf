@@ -39,7 +39,4 @@ module "dbnl" {
   domain                = var.domain
   instance_size         = "small"
   public_facing         = true
-  registry_server       = var.registry_server
-  registry_username     = var.registry_username
-  registry_password     = var.registry_password
 }

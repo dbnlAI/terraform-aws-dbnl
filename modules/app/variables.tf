@@ -151,12 +151,14 @@ variable "registry_username" {
   type        = string
   description = "Artifact registry username."
   sensitive   = true
+  default     = null
 }
 
 variable "registry_password" {
   type        = string
   description = "Artifact registry password."
   sensitive   = true
+  default     = null
 }
 
 variable "service_account_roles_arns" {
@@ -167,7 +169,7 @@ variable "service_account_roles_arns" {
 variable "registry_server" {
   type        = string
   description = "Artifact registry server."
-  default     = "us-docker.pkg.dev"
+  default     = "ghcr.io/dbnlai"
 }
 
 variable "s3_bucket" {

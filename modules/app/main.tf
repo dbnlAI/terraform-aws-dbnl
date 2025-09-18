@@ -104,6 +104,15 @@ locals {
         }
       }
     }
+    scheduler = {
+      # enabled=true will be default in future release
+      enabled = true
+      serviceAccount = {
+        annotations = {
+          "eks.amazonaws.com/role-arn" : var.service_account_roles_arns["scheduler-srv"]
+        }
+      }
+    }
     ui = {
       serviceAccount = {
         annotations = {

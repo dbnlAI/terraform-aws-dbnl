@@ -18,7 +18,8 @@ module "bucket" {
 }
 
 module "bucket_read_write_iam_policy" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-policy"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
+  version = "~> 5.0"
 
   name        = "${var.prefix}-data-read-write"
   description = "Data read/write access policy."

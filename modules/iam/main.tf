@@ -4,10 +4,12 @@ locals {
   ui_service_account_name        = "${var.helm_release_name}-ui-srv"
   worker_service_account_name    = "${var.helm_release_name}-worker-srv"
   flower_service_account_name    = "${var.helm_release_name}-flower-srv"
+
 }
 
 module "api_srv_iam_role" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  version = "~> 5.0"
 
   role_name = "${var.prefix}-${local.api_service_account_name}"
 
@@ -27,7 +29,8 @@ module "api_srv_iam_role" {
 }
 
 module "migration_job_iam_role" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  version = "~> 5.0"
 
   role_name = "${var.prefix}-${local.migration_service_account_name}"
 
@@ -47,7 +50,8 @@ module "migration_job_iam_role" {
 }
 
 module "ui_srv_iam_role" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  version = "~> 5.0"
 
   role_name = "${var.prefix}-${local.ui_service_account_name}"
 
@@ -62,7 +66,8 @@ module "ui_srv_iam_role" {
 }
 
 module "worker_srv_iam_role" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  version = "~> 5.0"
 
   role_name = "${var.prefix}-${local.worker_service_account_name}"
 
@@ -82,8 +87,9 @@ module "worker_srv_iam_role" {
 }
 
 module "flower_srv_iam_role" {
-  count  = var.flower_enabled ? 1 : 0
-  source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  count   = var.flower_enabled ? 1 : 0
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  version = "~> 5.0"
 
   role_name = "${var.prefix}-${local.flower_service_account_name}"
 

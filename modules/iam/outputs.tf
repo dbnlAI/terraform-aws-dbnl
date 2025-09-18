@@ -3,6 +3,7 @@ output "service_account_roles_arns" {
   value = merge({
     api-srv       = module.api_srv_iam_role.iam_role_arn
     migration-job = module.migration_job_iam_role.iam_role_arn
+    scheduler-srv = module.scheduler_srv_iam_role.iam_role_arn
     ui-srv        = module.ui_srv_iam_role.iam_role_arn
     worker-srv    = module.worker_srv_iam_role.iam_role_arn
     },

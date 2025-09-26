@@ -1,4 +1,6 @@
 locals {
+  host                 = "${var.helm_release_name}.${var.helm_release_namespace}.svc.cluster.local"
+  username             = var.username
   password             = coalesce(var.password, random_password.clickhouse.result)
   service_account_name = var.helm_release_name
 }
@@ -76,7 +78,7 @@ resource "helm_release" "clickhouse" {
 
   set_sensitive {
     name  = "auth.username"
-    value = var.username
+    value = local.username
   }
 
   set_sensitive {

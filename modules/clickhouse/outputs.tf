@@ -1,6 +1,6 @@
 output "host" {
   description = "ClickHouse host"
-  value       = "${helm_release_name}.${helm_release_namespace}.svc.cluster.local"
+  value       = local.host
 }
 
 output "port" {
@@ -10,13 +10,13 @@ output "port" {
 
 output "username" {
   description = "ClickHouse username"
-  value       = var.username
+  value       = local.username
   sensitive   = true
 }
 
 output "password" {
   description = "ClickHouse password"
-  value       = var.password
+  value       = local.password
   sensitive   = true
 }
 

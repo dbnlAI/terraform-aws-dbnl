@@ -5,6 +5,50 @@ variable "admin_password" {
   sensitive   = true
 }
 
+variable "clickhouse_enabled" {
+  type        = bool
+  description = "Whether to enable ClickHouse integration."
+  default     = false
+}
+
+variable "clickhouse_host" {
+  type        = string
+  description = "ClickHouse host."
+  default     = null
+}
+
+variable "clickhouse_port" {
+  type        = number
+  description = "ClickHouse port."
+  default     = 8123
+}
+
+variable "clickhouse_database" {
+  type        = string
+  description = "ClickHouse database name."
+  default     = null
+}
+
+variable "clickhouse_username" {
+  type        = string
+  description = "ClickHouse username."
+  default     = null
+  sensitive   = true
+}
+
+variable "clickhouse_password" {
+  type        = string
+  description = "ClickHouse password."
+  default     = null
+  sensitive   = true
+}
+
+variable "clickhouse_replicated" {
+  type        = bool
+  description = "Whether ClickHouse tables are replicated."
+  default     = false
+}
+
 variable "db_host" {
   type        = string
   description = "Database host."

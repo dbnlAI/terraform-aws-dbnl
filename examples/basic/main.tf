@@ -38,5 +38,4 @@ module "dbnl" {
   dev_token_private_key = tls_private_key.dev.private_key_pem
   domain                = var.domain
   instance_size         = "small"
-  public_facing         = true
 }

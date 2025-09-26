@@ -24,6 +24,7 @@ Terraform module to deploy dbnl in AWS.
 |------|--------|---------|
 | <a name="module_app"></a> [app](#module\_app) | ./modules/app | n/a |
 | <a name="module_blobstore"></a> [blobstore](#module\_blobstore) | ./modules/blobstore | n/a |
+| <a name="module_clickhouse"></a> [clickhouse](#module\_clickhouse) | ./modules/clickhouse | n/a |
 | <a name="module_database"></a> [database](#module\_database) | ./modules/database | n/a |
 | <a name="module_iam"></a> [iam](#module\_iam) | ./modules/iam | n/a |
 | <a name="module_kubernetes"></a> [kubernetes](#module\_kubernetes) | ./modules/kubernetes | n/a |
@@ -45,6 +46,7 @@ Terraform module to deploy dbnl in AWS.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_admin_password"></a> [admin\_password](#input\_admin\_password) | Admin password. | `string` | `null` | no |
+| <a name="input_clickhouse_enabled"></a> [clickhouse\_enabled](#input\_clickhouse\_enabled) | Whether to enable Clickhouse for OTEL trace storage. | `bool` | `false` | no |
 | <a name="input_create_vpc"></a> [create\_vpc](#input\_create\_vpc) | Whether to create a new VPC for the app. If false, an existing VPC must be provided. | `bool` | `true` | no |
 | <a name="input_db_password"></a> [db\_password](#input\_db\_password) | Database password. | `string` | `null` | no |
 | <a name="input_dev_token_private_key"></a> [dev\_token\_private\_key](#input\_dev\_token\_private\_key) | Private key used to sign dev tokens. | `string` | n/a | yes |

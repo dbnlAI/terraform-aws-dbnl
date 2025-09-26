@@ -26,6 +26,13 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_admin_password"></a> [admin\_password](#input\_admin\_password) | Admin password. | `string` | `null` | no |
+| <a name="input_clickhouse_database"></a> [clickhouse\_database](#input\_clickhouse\_database) | ClickHouse database name. | `string` | `null` | no |
+| <a name="input_clickhouse_enabled"></a> [clickhouse\_enabled](#input\_clickhouse\_enabled) | Whether to enable ClickHouse integration. | `bool` | `false` | no |
+| <a name="input_clickhouse_host"></a> [clickhouse\_host](#input\_clickhouse\_host) | ClickHouse host. | `string` | `null` | no |
+| <a name="input_clickhouse_password"></a> [clickhouse\_password](#input\_clickhouse\_password) | ClickHouse password. | `string` | `null` | no |
+| <a name="input_clickhouse_port"></a> [clickhouse\_port](#input\_clickhouse\_port) | ClickHouse port. | `number` | `8123` | no |
+| <a name="input_clickhouse_replicated"></a> [clickhouse\_replicated](#input\_clickhouse\_replicated) | Whether ClickHouse tables are replicated. | `bool` | `false` | no |
+| <a name="input_clickhouse_username"></a> [clickhouse\_username](#input\_clickhouse\_username) | ClickHouse username. | `string` | `null` | no |
 | <a name="input_db_database"></a> [db\_database](#input\_db\_database) | Database name. | `string` | n/a | yes |
 | <a name="input_db_host"></a> [db\_host](#input\_db\_host) | Database host. | `string` | n/a | yes |
 | <a name="input_db_password"></a> [db\_password](#input\_db\_password) | Database password. | `string` | n/a | yes |

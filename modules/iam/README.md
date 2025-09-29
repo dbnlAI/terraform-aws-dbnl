@@ -14,6 +14,7 @@ No providers.
 | <a name="module_api_srv_iam_role"></a> [api\_srv\_iam\_role](#module\_api\_srv\_iam\_role) | terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks | ~> 5.0 |
 | <a name="module_flower_srv_iam_role"></a> [flower\_srv\_iam\_role](#module\_flower\_srv\_iam\_role) | terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks | ~> 5.0 |
 | <a name="module_migration_job_iam_role"></a> [migration\_job\_iam\_role](#module\_migration\_job\_iam\_role) | terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks | ~> 5.0 |
+| <a name="module_scheduler_srv_iam_role"></a> [scheduler\_srv\_iam\_role](#module\_scheduler\_srv\_iam\_role) | terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks | ~> 5.0 |
 | <a name="module_ui_srv_iam_role"></a> [ui\_srv\_iam\_role](#module\_ui\_srv\_iam\_role) | terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks | ~> 5.0 |
 | <a name="module_worker_srv_iam_role"></a> [worker\_srv\_iam\_role](#module\_worker\_srv\_iam\_role) | terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks | ~> 5.0 |
 

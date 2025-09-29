@@ -137,6 +137,18 @@ resource "time_sleep" "sequence_loadbalancer" {
   ]
 }
 
+module "clickhouse" {
+  count  = var.clickhouse_enabled ? 1 : 0
+  source = "./modules/clickhouse"
+
+  prefix = local.prefix
+
+  cluster_oidc_provider_arn = module.kubernetes.cluster_oidc_provider_arn
+
+  s3_bucket = module.blobstore.bucket
+  s3_region = module.blobstore.region
+}
+
 module "app" {
   source = "./modules/app"
 
@@ -145,6 +157,13 @@ module "app" {
   helm_chart_version     = var.helm_chart_version
   helm_release_name      = var.helm_release_name
   helm_release_namespace = var.helm_release_namespace
+
+  clickhouse_enabled    = length(module.clickhouse) > 0
+  clickhouse_host       = length(module.clickhouse) > 0 ? module.clickhouse[0].host : null
+  clickhouse_port       = length(module.clickhouse) > 0 ? module.clickhouse[0].port : null
+  clickhouse_username   = length(module.clickhouse) > 0 ? module.clickhouse[0].username : null
+  clickhouse_password   = length(module.clickhouse) > 0 ? module.clickhouse[0].password : null
+  clickhouse_replicated = length(module.clickhouse) > 0 ? module.clickhouse[0].replicated : null
 
   db_host     = module.database.host
   db_port     = module.database.port
@@ -188,6 +207,7 @@ module "app" {
   flower_basic_auth_username = var.flower_basic_auth_username
 
   depends_on = [
+    module.clickhouse,
     module.kubernetes,
     time_sleep.sequence_loadbalancer,
   ]

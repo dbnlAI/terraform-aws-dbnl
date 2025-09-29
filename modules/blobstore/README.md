@@ -13,7 +13,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_bucket"></a> [bucket](#module\_bucket) | terraform-aws-modules/s3-bucket/aws | < 5.0.0 |
+| <a name="module_bucket"></a> [bucket](#module\_bucket) | terraform-aws-modules/s3-bucket/aws | ~> 4.0 |
 | <a name="module_bucket_read_write_iam_policy"></a> [bucket\_read\_write\_iam\_policy](#module\_bucket\_read\_write\_iam\_policy) | terraform-aws-modules/iam/aws//modules/iam-policy | ~> 5.0 |
 
 ## Resources

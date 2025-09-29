@@ -39,5 +39,5 @@ module "dbnl" {
   domain                = var.domain
   instance_size         = "small"
   public_facing         = true
-  helm_chart_version    = "0.27.0-dev+ad5abbd0a"
+  helm_chart_version    = "0.27.0-dev+d0c82fe94"
 }

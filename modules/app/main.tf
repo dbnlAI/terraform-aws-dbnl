@@ -95,6 +95,7 @@ locals {
         className   = "alb"
         annotations = local.lb_annotations
         host        = var.domain
+        hostLegacy  = "legacy-${var.domain}"
       }
     }
     migration = {

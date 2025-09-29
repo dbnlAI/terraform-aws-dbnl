@@ -34,11 +34,9 @@ resource "tls_private_key" "dev" {
 module "dbnl" {
   source = "../../"
 
-  oidc_audience         = var.oidc_audience
-  oidc_client_id        = var.oidc_client_id
-  oidc_issuer           = var.oidc_issuer
-  oidc_scopes           = var.oidc_scopes
+  admin_password        = var.admin_password
   dev_token_private_key = tls_private_key.dev.private_key_pem
   domain                = var.domain
   instance_size         = "small"
+  clickhouse_enabled    = true
 }

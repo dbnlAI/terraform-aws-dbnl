@@ -69,6 +69,15 @@ locals {
         scopes   = var.oidc_scopes
       }
     }
+    clickhouse = {
+      enabled    = var.clickhouse_enabled
+      host       = var.clickhouse_host
+      port       = var.clickhouse_port
+      username   = var.clickhouse_username
+      password   = var.clickhouse_password
+      database   = var.clickhouse_database
+      replicated = var.clickhouse_replicated
+    }
     db = {
       host     = var.db_host
       port     = var.db_port

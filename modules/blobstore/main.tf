@@ -2,7 +2,7 @@ resource "random_pet" "s3_bucket" {}
 
 module "bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "< 5.0.0"
+  version = "~> 4.0"
 
   bucket = "${var.prefix}-data-${random_pet.s3_bucket.id}"
 

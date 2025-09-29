@@ -169,3 +169,9 @@ variable "terms_of_service_disabled" {
   description = "Whether to disable the terms of service acceptance requirement."
   default     = false
 }
+
+variable "clickhouse_enabled" {
+  type        = bool
+  description = "Whether to enable Clickhouse for OTEL trace storage."
+  default     = false
+}

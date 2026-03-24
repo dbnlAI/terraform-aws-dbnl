@@ -37,6 +37,7 @@ module "dbnl" {
   admin_password        = var.admin_password
   dev_token_private_key = tls_private_key.dev.private_key_pem
   domain                = var.domain
+  helm_chart_version    = "0.30.0"
   instance_size         = "small"
   clickhouse_enabled    = true
 }

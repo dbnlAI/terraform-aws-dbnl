@@ -70,7 +70,7 @@ variable "flower_basic_auth_username" {
 variable "helm_chart_version" {
   type        = string
   description = "Helm chart version."
-  default     = "0.25.0"
+  default     = "0.30.0"
 }
 
 variable "helm_release_name" {

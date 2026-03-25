@@ -34,6 +34,7 @@ resource "tls_private_key" "dev" {
 module "dbnl" {
   source = "../../"
 
+  public_facing         = true
   oidc_audience         = var.oidc_audience
   oidc_client_id        = var.oidc_client_id
   oidc_issuer           = var.oidc_issuer

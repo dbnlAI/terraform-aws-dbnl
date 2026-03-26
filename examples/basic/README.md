@@ -1,15 +1,29 @@
 # Basic deployment
 
-This example shows how to create a basic dbnl deployment to get familiar with the infrastructure and app.
+This example shows how to create a basic dbnl deployment on AWS (EKS) using username/password authentication.
 
 **!!!DO NOT USE THIS EXAMPLE IN PRODUCTION!!!**
 
+## Prerequisites
+
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) installed and configured
+- An [ACM certificate](https://console.aws.amazon.com/acm/home) for the domain you plan to deploy dbnl to
+
+## Required variables
+
+| Variable | Description |
+|---|---|
+| `admin_password` | Password for the dbnl admin user |
+| `domain` | Domain to deploy dbnl to |
+
+Note: the AWS region is hardcoded to `us-east-1` in this example.
+
 ## Usage
 
-1. Create an [ACM certificate](https://console.aws.amazon.com/acm/home) for the domain you plan to deploy dbnl.
+1. Run `terraform apply` with your variables:
 
-2. Run `terraform apply` specifying your admin password, domain and registry credentials.
-
+    ```bash
     AWS_PROFILE={AWS_PROFILE} terraform apply -var-file={TF_VARS_FILE}
+    ```
 
-3. Update your DNS registry with a CNAME record pointing your domain to the dbnl [load balancer](https://console.aws.amazon.com/ec2/home#LoadBalancers:).
+2. Update your DNS to point a CNAME record to the dbnl [load balancer](https://console.aws.amazon.com/ec2/home#LoadBalancers:) output by Terraform.

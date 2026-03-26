@@ -1,15 +1,33 @@
-# Basic deployment
+# OIDC deployment
 
-This example shows how to create an OIDC dbnl deployment to get familiar with the infrastructure and app.
+This example shows how to create a dbnl deployment on AWS (EKS) using OIDC for authentication.
 
 **!!!DO NOT USE THIS EXAMPLE IN PRODUCTION!!!**
 
+## Prerequisites
+
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) installed and configured
+- An [ACM certificate](https://console.aws.amazon.com/acm/home) for the domain you plan to deploy dbnl to
+- An OIDC provider configured with a client application
+
+## Required variables
+
+| Variable | Description |
+|---|---|
+| `domain` | Domain to deploy dbnl to |
+| `oidc_issuer` | OIDC issuer URL |
+| `oidc_client_id` | OIDC client ID |
+| `oidc_audience` | OIDC audience |
+| `oidc_scopes` | OIDC scopes (default: `openid profile email`) |
+
+Note: the AWS region is hardcoded to `us-east-1` in this example.
+
 ## Usage
 
-1. Create an [ACM certificate](https://console.aws.amazon.com/acm/home) for the domain you plan to deploy dbnl.
+1. Run `terraform apply` with your variables:
 
-2. Run `terraform apply` specifying your OIDC config, domain and registry credentials.
-
+    ```bash
     AWS_PROFILE={AWS_PROFILE} terraform apply -var-file={TF_VARS_FILE}
+    ```
 
-3. Update your DNS registry with a CNAME record pointing your domain to the dbnl [load balancer](https://console.aws.amazon.com/ec2/home#LoadBalancers:).
+2. Update your DNS to point a CNAME record to the dbnl [load balancer](https://console.aws.amazon.com/ec2/home#LoadBalancers:) output by Terraform.

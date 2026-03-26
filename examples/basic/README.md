@@ -26,4 +26,14 @@ Note: the AWS region is hardcoded to `us-east-1` in this example.
     AWS_PROFILE={AWS_PROFILE} terraform apply -var-file={TF_VARS_FILE}
     ```
 
-2. Update your DNS to point a CNAME record to the dbnl [load balancer](https://console.aws.amazon.com/ec2/home#LoadBalancers:) output by Terraform.
+2. Configure `kubectl` to connect to the cluster:
+
+    ```bash
+    aws eks update-kubeconfig --region us-east-1 --name $(terraform output -raw cluster_name)
+    ```
+
+3. Get the ALB hostname and create a CNAME record in your DNS provider pointing your domain to it:
+
+    ```bash
+    kubectl get ingress -A -o jsonpath='{.items[0].status.loadBalancer.ingress[0].hostname}'
+    ```

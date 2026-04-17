@@ -117,6 +117,12 @@ variable "helm_chart_version" {
   description = "Helm chart version."
 }
 
+variable "image_tag" {
+  type        = string
+  description = "Container image tag override. Defaults to helm_chart_version when null."
+  default     = null
+}
+
 variable "helm_release_name" {
   type        = string
   description = "Helm release name."

@@ -155,6 +155,7 @@ module "app" {
   admin_password = var.admin_password
 
   helm_chart_version     = var.helm_chart_version
+  image_tag              = var.image_tag
   helm_release_name      = var.helm_release_name
   helm_release_namespace = var.helm_release_namespace
 

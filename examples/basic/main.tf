@@ -13,10 +13,10 @@ provider "kubernetes" {
 }
 
 provider "helm" {
-  kubernetes {
+  kubernetes = {
     host                   = module.dbnl.cluster_endpoint
     cluster_ca_certificate = base64decode(module.dbnl.cluster_ca_cert)
-    exec {
+    exec = {
       api_version = "client.authentication.k8s.io/v1beta1"
       args        = ["eks", "get-token", "--cluster-name", module.dbnl.cluster_name]
       command     = "aws"

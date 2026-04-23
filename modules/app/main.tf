@@ -4,6 +4,8 @@ locals {
 
   flower_basic_auth_enabled = nonsensitive(var.flower_basic_auth_username != null && var.flower_basic_auth_password != null)
 
+  image_tag = coalesce(var.image_tag, var.helm_chart_version)
+
   lb_annotations = {
     "alb.ingress.kubernetes.io/certificate-arn"    = var.domain_acm_certificate_arn
     "alb.ingress.kubernetes.io/group.name"         = "${var.prefix}-load-balancer"
@@ -49,7 +51,7 @@ locals {
     api = {
       image = {
         repository = "${var.registry_server}/images/api-srv"
-        tag        = var.helm_chart_version
+        tag        = local.image_tag
       }
       serviceAccount = {
         annotations = {
@@ -113,7 +115,7 @@ locals {
     migration = {
       image = {
         repository = "${var.registry_server}/images/migration-job"
-        tag        = var.helm_chart_version
+        tag        = local.image_tag
       }
       serviceAccount = {
         annotations = {
@@ -125,7 +127,7 @@ locals {
       enabled = true
       image = {
         repository = "${var.registry_server}/images/scheduler-srv"
-        tag        = var.helm_chart_version
+        tag        = local.image_tag
       }
       serviceAccount = {
         annotations = {
@@ -136,7 +138,7 @@ locals {
     ui = {
       image = {
         repository = "${var.registry_server}/images/ui-srv"
-        tag        = var.helm_chart_version
+        tag        = local.image_tag
       }
       serviceAccount = {
         annotations = {
@@ -147,7 +149,7 @@ locals {
     worker = {
       image = {
         repository = "${var.registry_server}/images/worker-srv"
-        tag        = var.helm_chart_version
+        tag        = local.image_tag
       }
       realtime = {
         enabled = true
@@ -162,7 +164,7 @@ locals {
       enabled = true
       image = {
         repository = "${var.registry_server}/images/flower-srv"
-        tag        = var.helm_chart_version
+        tag        = local.image_tag
       }
       serviceAccount = {
         annotations = {
@@ -181,7 +183,7 @@ locals {
       }
       image = {
         repository = "${var.registry_server}/images/flower-srv"
-        tag        = var.helm_chart_version
+        tag        = local.image_tag
       }
       port = 0
     }

@@ -56,53 +56,19 @@ resource "helm_release" "clickhouse" {
   namespace        = var.helm_release_namespace
   create_namespace = true
 
-  set {
-    name  = "clusterName"
-    value = "dbnl"
-  }
+  set = [
+    { name = "clusterName", value = "dbnl" },
+    { name = "shards", value = 1 },
+    { name = "replicaCount", value = var.replica_count },
+    { name = "resourcesPreset", value = var.resources_preset },
+    { name = "configdFiles.00-config\\.xml", value = templatefile("${path.module}/00-config.xml.tftpl", { region = var.s3_region, bucket = var.s3_bucket }) },
+    { name = "persistence.size", value = "15Gi" },
+    { name = "global.defaultStorageClass", value = "gp2" },
+    { name = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn", value = module.clickhouse_iam_role.iam_role_arn },
+  ]
 
-  set {
-    name  = "shards"
-    value = 1
-  }
-
-  set {
-    name  = "replicaCount"
-    value = var.replica_count
-  }
-
-  set {
-    name  = "resourcesPreset"
-    value = var.resources_preset
-  }
-
-  set_sensitive {
-    name  = "auth.username"
-    value = local.username
-  }
-
-  set_sensitive {
-    name  = "auth.password"
-    value = local.password
-  }
-
-  set {
-    name  = "configdFiles.00-config\\.xml"
-    value = templatefile("${path.module}/00-config.xml.tftpl", { region = var.s3_region, bucket = var.s3_bucket })
-  }
-
-  set {
-    name  = "persistence.size"
-    value = "15Gi"
-  }
-
-  set {
-    name  = "global.defaultStorageClass"
-    value = "gp2"
-  }
-
-  set {
-    name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
-    value = module.clickhouse_iam_role.iam_role_arn
-  }
+  set_sensitive = [
+    { name = "auth.username", value = local.username },
+    { name = "auth.password", value = local.password },
+  ]
 }
